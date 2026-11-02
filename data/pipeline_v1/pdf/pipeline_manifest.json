@@ -1,8 +1,23 @@
 {
-  "pipeline_version":"1.0",
-  "pathway":"pdf_and_txt",
-  "execution_status":"executed_and_repeatability_checked",
-  "repeatability_test":"Two consecutive preparation runs produced identical cleaned text and chunk outputs for both sources.",
-  "outputs":["data/processed/student_handbook_demo_prepared.json","data/processed/faq_demo_prepared.json"],
-  "limitations":["Synthetic handbook and FAQ only; no real contract clauses.","Text-based PDF extraction only; scanned PDFs and OCR are out of scope.","No contract-risk classifier or legal accuracy evaluation is performed."]
+  "pipeline_version": "1.0",
+  "pathway": "PDF and TXT document ingestion",
+  "dataset": "CUAD v1",
+  "execution_status": "not_yet_verified",
+  "notebook": "notebooks/week3_pipeline.ipynb",
+  "planned_outputs": [
+    "data/processed/prepared_text.jsonl",
+    "data/week3_manifest.json"
+  ],
+  "validation_status": {
+    "text_extraction": "pending",
+    "output_validation": "pending",
+    "repeatability": "pending",
+    "lineage_verification": "pending"
+  },
+  "limitations": [
+    "CUAD contains commercial contracts and may not represent consumer website Terms and Conditions.",
+    "A two-contract sample demonstrates ingestion only and does not establish clause-detection accuracy.",
+    "Scanned PDFs, OCR, password-protected files, complex layouts and multilingual extraction are outside this version.",
+    "No clause classifier is trained by this data-preparation pipeline."
+  ]
 }
