@@ -1,0 +1,8 @@
+{
+  "pipeline_version":"1.0",
+  "pathway":"pdf_and_txt",
+  "execution_status":"executed_and_repeatability_checked",
+  "repeatability_test":"Two consecutive preparation runs produced identical cleaned text and chunk outputs for both sources.",
+  "outputs":["data/processed/student_handbook_demo_prepared.json","data/processed/faq_demo_prepared.json"],
+  "limitations":["Synthetic handbook and FAQ only; no real contract clauses.","Text-based PDF extraction only; scanned PDFs and OCR are out of scope.","No contract-risk classifier or legal accuracy evaluation is performed."]
+}
