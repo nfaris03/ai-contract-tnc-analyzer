@@ -1,0 +1,11 @@
+{
+  "source_file":"faq_demo.txt",
+  "source_sha256":"05461ed704d8c8cf8b7a609e2b4b4e7cb800a7fe16a68fe5805546a7b3e2f43f",
+  "extraction_method":"UTF-8 text read",
+  "cleaning":"Normalize line endings, collapse repeated horizontal whitespace, trim excessive blank lines",
+  "chunking":"Blank-line-separated FAQ blocks",
+  "chunks":[
+    "DEMO FAQ - synthetic content\nQ: Where do I find course information?\nA: Refer to the course catalogue.",
+    "Q: Who can clarify graduation rules?\nA: Contact the faculty office."
+  ]
+}
