@@ -3,37 +3,40 @@
 ## Project context
 **Project:** AI-Powered Contract and Terms & Conditions Analyzer  
 **Selected pathway:** PDF and TXT document ingestion (Pathway A).  
-**Data source type:** Synthetic practice dataset (`Topic_3_Dummy_Datasets.zip`, `01_documents`), used because no permission-checked contract dataset has been selected yet.
+**Data source:** CUAD v1 (Contract Understanding Atticus Dataset), real commercial contracts. No synthetic practice data is used.
 
 ## A1 – Requirement-to-data mapping
 
 | Requirement ID | Needed information / feature | Candidate source | Why usable / constraint |
 |---|---|---|---|
-| **FR-03 / FR-05** (text extraction; cleaning and segmentation with context preserved) | Readable text from an uploaded PDF/TXT, split into sections that keep their headings | **Now:** synthetic `student_handbook_demo.pdf` and `faq_demo.txt`. **Later:** public T&C documents or authorised sample agreements | The synthetic files exercise extraction and chunking only. They contain no contract clauses, so they cannot support FR-06/FR-07 or NFR-04 claims. |
-| **NFR-06 / RAI-04** (test documents public or authorised) and **RAI-01 / NFR-05** (source grounding and traceability) | Source identity, owner, access rights, checksum, and a link from each chunk back to its source | Same files plus `data/week3_manifest.json` | Synthetic, redistributable teaching data is safe to keep in GitHub. Real contracts must be public or authorised before they enter the repo. |
+| **FR-03 / FR-05** (text extraction; cleaning and segmentation with context preserved) | Readable text from real contract PDF/TXT, split into clause-sized segments that keep their headings | CUAD v1 full-contract PDFs and TXTs | Real contract wording and layout. Limitation: commercial agreements, not consumer T&Cs. Some CUAD PDFs are scanned images and would need OCR (outside V1). |
+| **NFR-04 / FR-06, FR-07** (accuracy measured on a labelled test set; clause identification and categorisation) | Expert clause labels for later evaluation | CUAD `master_clauses.csv` and `CUAD_v1.json` (41 clause categories) | Labels are not used in Topic 3. They are the reason CUAD suits later evaluation. |
+| **NFR-06 / RAI-04** (public or authorised test documents) and **RAI-01 / NFR-05** (source grounding and traceability) | Licence, source identity, checksum, chunk-to-source link | CUAD (CC BY 4.0) plus `data/week3_manifest.json` | Redistributable with attribution. Contracts come from public filings; no private documents are used. |
 
-**Replacement plan:** the synthetic pack will be replaced by a permission-checked contract / T&C dataset (public T&C documents or authorised sample agreements), selected separately for clause detection and evaluation. Results on the practice files must not be read as evidence of the application's performance.
+**Attribution (CC BY 4.0):** Hendrycks, D., Burns, C., Chen, A., Ball, S. (2021). *CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review.* arXiv:2103.06268. Obtained from https://huggingface.co/datasets/theatticusproject/cuad (510 contracts as PDF and TXT, plus expert clause labels).
 
 ## A4 – Data inventory
 
+The notebook (cell 2) picks the files deterministically and prints their names. Fill in the two filenames and the SHA-256 values from the notebook output (cell A3).
+
 | Source ID | Filename / URL | Type and purpose | Version / date / owner | Access / rights | Inspection evidence |
 |---|---|---|---|---|---|
-| S01 | `data/raw/student_handbook_demo.pdf` | Text-based PDF; demonstrates PDF extraction, cleaning and section-aware chunking | "2026 Demo Edition"; owner "Teaching Team" (stated in the document) | Lecturer-supplied synthetic teaching data; lab use only | 1 page; 426 extracted characters (425 after cleaning); title/metadata line plus four sections (Registration, Attendance, Graduation, Academic Support); no contract clauses. SHA-256 `3dc6270e4a2d072afe07502c27c0bb71a2305bf2e020f01cc86fe96d7950ec5e` |
-| S02 | `data/raw/faq_demo.txt` | UTF-8 plain text; demonstrates TXT ingestion and keeping Q&A pairs together | Version, date and owner not stated | Lecturer-supplied synthetic teaching data; lab use only | 171 bytes; 170 characters after cleaning; title line plus two Q&A pairs. SHA-256 `05461ed704d8c8cf8b7a609e2b4b4e7cb800a7fe16a68fe5805546a7b3e2f43f` |
+| S01 | `data/raw/CUAD_v1/full_contract_pdf/<fill in from notebook>.pdf` | Text-based contract PDF; demonstrates PDF extraction, cleaning and clause-aware chunking | CUAD v1; The Atticus Project | CC BY 4.0, attribution required | `<pages>` pages; `<chars>` extracted characters; SHA-256 `<fill in>` |
+| S02 | `data/raw/CUAD_v1/full_contract_txt/<fill in from notebook>.txt` | Contract plain text; demonstrates TXT ingestion and clause-aware chunking | CUAD v1; The Atticus Project | CC BY 4.0, attribution required | `<chars>` characters; SHA-256 `<fill in>` |
 
-**Raw vs prepared storage:** originals stay unchanged in `data/raw/`. Prepared output goes to `data/processed/` (`prepared_text.jsonl`), with lineage in `data/week3_manifest.json`.
+**Raw vs prepared storage:** originals stay unchanged in `data/raw/`. Prepared output goes to `data/processed/prepared_text.jsonl`, with lineage in `data/week3_manifest.json`.
 
 ## Inspection observations
-- PDF text extraction returned selectable text, so OCR was not needed for this sample.
-- PDF section headings provide useful chunk boundaries.
-- Blank lines separate the TXT FAQ pairs, so each Q&A pair can stay together.
-- Both samples are small and synthetic.
+Fill in after running the notebook. Suggested points:
+- Did PDF extraction return selectable text, or was the first PDF scanned (the notebook skips scanned PDFs automatically and reports how many it tried)?
+- What clause headings do the contracts use (ARTICLE / Section / numbered)?
+- Any extraction artefacts (page headers, footers, broken line wraps)?
 
 ## Project relevance and limitation
-These files exercise basic document-ingestion mechanics relevant to the planned upload feature (FR-01 to FR-05). They are not project-domain contract data and cannot support claims about clause detection, legal-risk classification or model accuracy.
+These files exercise the planned upload and extraction stages (FR-01 to FR-05) on real contract text. Two contracts are a very small sample and cannot support claims about clause-detection accuracy. CUAD is commercial contracts, so consumer-style T&C documents should be added later (RAI-05, varied document structures).
 
 ## Scope decision
-Only PDF/TXT is implemented because it matches the document-upload workflow in the Topic 2 architecture. Tabular, image, JSON/API, audio and time-series pathways in the ZIP are outside the current project scope.
+Only PDF/TXT is implemented because it matches the document-upload workflow in the Topic 2 architecture. Tabular, image, JSON/API, audio and time-series pathways are outside the current project scope.
 
 ## Checkpoint A
-The requirement that needs this data is **FR-03 / FR-05**, with **NFR-06 / RAI-01** for provenance. The loaded sample is shown in notebook cell A3 (extracted text, character counts and SHA-256 for both files), not just a "file loaded" message.
+The requirement that needs this data is **FR-03 / FR-05**, with **NFR-06 / RAI-01** for licence and provenance. The loaded sample is shown in notebook cell A3 (extracted text, character counts and SHA-256 for both files), not just a "file loaded" message.

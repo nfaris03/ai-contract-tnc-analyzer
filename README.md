@@ -172,7 +172,7 @@ The current focus is on defining the problem, establishing project objectives an
 
 ## 13. Topic 3 – Data Pipeline
 
-The Topic 3 lab implements the PDF/TXT document-ingestion pathway using the lecturer-provided synthetic teaching examples. The pipeline demonstrates source inspection, text extraction, cleaning, structure-aware chunking, validation, saved outputs, source hashes and repeatability checks. The sample handbook and FAQ are not real contracts and do not establish contract-clause detection or legal-risk accuracy. A suitable project-domain contract dataset will be selected separately for later model development and evaluation.
+The Topic 3 lab implements the PDF/TXT document-ingestion pathway using real contracts from the CUAD v1 dataset (Hendrycks et al., 2021; CC BY 4.0; https://huggingface.co/datasets/theatticusproject/cuad). The pipeline demonstrates source inspection, text extraction, cleaning, clause-aware chunking, validation, saved outputs, source hashes and repeatability checks. Only two contracts are prepared, so this shows the pipeline works and does not establish clause-detection or legal-risk accuracy. CUAD contains commercial contracts, so consumer-style T&C documents should be added for later evaluation.
 
 ### Topic 3 files
 
@@ -183,4 +183,4 @@ The Topic 3 lab implements the PDF/TXT document-ingestion pathway using the lect
 - [PDF/TXT pipeline manifest](data/pipeline_v1/pdf/pipeline_manifest.json)
 - [Prepared outputs](data/processed/)
 
-**Status:** Initial PDF/TXT pipeline implemented and repeatability checked on synthetic examples. OCR and real-contract evaluation remain future work.
+**Status:** Parts A and B (data inventory, preparation, validation, lineage) implemented for CUAD contracts. OCR, consumer T&C data and clause-detection evaluation remain future work.
