@@ -1,42 +1,56 @@
 # Week 3 – Data Inventory
 
 ## Project context
-**Project:** AI-Powered Contract and Terms & Conditions Analyzer  
-**Selected pathway:** PDF and TXT document ingestion (Pathway A).  
-**Data source:** CUAD v1 (Contract Understanding Atticus Dataset), real commercial contracts. No synthetic practice data is used.
+- Project: AI-Powered Contract and Terms & Conditions Analyzer
+- Selected pathway: PDF/TXT document ingestion (Pathway A)
+- Selected dataset: CUAD v1 (Contract Understanding Atticus Dataset)
+- Dataset source: https://huggingface.co/datasets/theatticusproject/cuad
+- Dataset paper: Hendrycks et al. (2021), CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review, arXiv:2103.06268.
+
+CUAD contains real commercial contracts and expert clause annotations. It is relevant to contract clause extraction and later evaluation, but it does not fully represent consumer website Terms & Conditions.
 
 ## A1 – Requirement-to-data mapping
 
-| Requirement ID | Needed information / feature | Candidate source | Why usable / constraint |
+| Requirement | Needed data | CUAD component | Use and limitation |
 |---|---|---|---|
-| **FR-03 / FR-05** (text extraction; cleaning and segmentation with context preserved) | Readable text from real contract PDF/TXT, split into clause-sized segments that keep their headings | CUAD v1 full-contract PDFs and TXTs | Real contract wording and layout. Limitation: commercial agreements, not consumer T&Cs. Some CUAD PDFs are scanned images and would need OCR (outside V1). |
-| **NFR-04 / FR-06, FR-07** (accuracy measured on a labelled test set; clause identification and categorisation) | Expert clause labels for later evaluation | CUAD `master_clauses.csv` and `CUAD_v1.json` (41 clause categories) | Labels are not used in Topic 3. They are the reason CUAD suits later evaluation. |
-| **NFR-06 / RAI-04** (public or authorised test documents) and **RAI-01 / NFR-05** (source grounding and traceability) | Licence, source identity, checksum, chunk-to-source link | CUAD (CC BY 4.0) plus `data/week3_manifest.json` | Redistributable with attribution. Contracts come from public filings; no private documents are used. |
+| FR-03 / FR-05 | Contract text for extraction, cleaning and segmentation | Full-contract PDF and TXT files | Real contract wording; some PDFs may be image-based or difficult to extract. |
+| FR-06 / FR-07 / NFR-04 | Clause examples and labels for identification and categorisation | CUAD clause annotations and category data | Useful for later labelled evaluation; labels may not exactly match the project's final categories. |
+| NFR-05 / RAI-01 / RAI-04 | Source identity, provenance, traceability and permitted access | Original files plus source metadata and checksums | Preserve attribution and verify redistribution conditions before committing source documents. |
 
-**Attribution (CC BY 4.0):** Hendrycks, D., Burns, C., Chen, A., Ball, S. (2021). *CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review.* arXiv:2103.06268. Obtained from https://huggingface.co/datasets/theatticusproject/cuad (510 contracts as PDF and TXT, plus expert clause labels).
+## A2 – Source identity and access
+- Dataset: CUAD v1.
+- Publisher: The Atticus Project.
+- Research citation: Hendrycks et al. (2021), arXiv:2103.06268.
+- Dataset page: https://huggingface.co/datasets/theatticusproject/cuad
+- The dataset release is described as CC BY 4.0. This dataset-level statement should not be treated as a guarantee that every underlying contract can be redistributed without checking its own source terms. Do not commit source contracts unless redistribution status is confirmed.
 
-## A4 – Data inventory
+## A3 – Representative file inspection (pending)
+The notebook is designed to select one text-extractable PDF and one TXT file from CUAD and print their exact filenames, sizes, extracted character counts, sample text and SHA-256 checksums.
 
-The notebook (cell 2) picks the files deterministically and prints their names. Fill in the two filenames and the SHA-256 values from the notebook output (cell A3).
+Do not fill in filenames, page counts, character counts, or checksums manually. Copy them from actual Colab output after running the notebook.
 
-| Source ID | Filename / URL | Type and purpose | Version / date / owner | Access / rights | Inspection evidence |
+| Source ID | Filename | Format | Size | Inspection evidence | SHA-256 |
 |---|---|---|---|---|---|
-| S01 | `data/raw/CUAD_v1/full_contract_pdf/<fill in from notebook>.pdf` | Text-based contract PDF; demonstrates PDF extraction, cleaning and clause-aware chunking | CUAD v1; The Atticus Project | CC BY 4.0, attribution required | `<pages>` pages; `<chars>` extracted characters; SHA-256 `<fill in>` |
-| S02 | `data/raw/CUAD_v1/full_contract_txt/<fill in from notebook>.txt` | Contract plain text; demonstrates TXT ingestion and clause-aware chunking | CUAD v1; The Atticus Project | CC BY 4.0, attribution required | `<chars>` characters; SHA-256 `<fill in>` |
+| S01 | Pending notebook execution | PDF | Pending | Pending | Pending |
+| S02 | Pending notebook execution | TXT | Pending | Pending | Pending |
 
-**Raw vs prepared storage:** originals stay unchanged in `data/raw/`. Prepared output goes to `data/processed/prepared_text.jsonl`, with lineage in `data/week3_manifest.json`.
+## A4 – Inspection observations (pending)
+After running the notebook, record:
+- Whether the PDF has selectable text and how many pages it contains.
+- Exact extracted character counts for both files.
+- Examples of section/clause heading styles.
+- Extraction artefacts such as broken line wraps, headers, footers, or missing text.
+- Whether the TXT decodes successfully as UTF-8.
 
-## Inspection observations
-Fill in after running the notebook. Suggested points:
-- Did PDF extraction return selectable text, or was the first PDF scanned (the notebook skips scanned PDFs automatically and reports how many it tried)?
-- What clause headings do the contracts use (ARTICLE / Section / numbered)?
-- Any extraction artefacts (page headers, footers, broken line wraps)?
+## Storage and lineage plan
+- data/raw/: local, unchanged source files during Colab processing. Do not commit contract documents unless redistribution is confirmed.
+- data/processed/prepared_text.jsonl: prepared clause/section chunks generated by the notebook. Commit only if the content may be redistributed.
+- data/week3_manifest.json: actual source filenames, SHA-256 values, prepared-output checksum, processing description and dataset provenance, generated by the notebook.
 
-## Project relevance and limitation
-These files exercise the planned upload and extraction stages (FR-01 to FR-05) on real contract text. Two contracts are a very small sample and cannot support claims about clause-detection accuracy. CUAD is commercial contracts, so consumer-style T&C documents should be added later (RAI-05, varied document structures).
+## Project relevance and limitations
+CUAD supports contract-text ingestion and clause preparation (FR-03 and FR-05) and may support later labelled evaluation. A two-contract sample is only a pipeline demonstration; it cannot establish model accuracy. Consumer-style T&C documents should be added later if the project retains that target domain.
 
 ## Scope decision
-Only PDF/TXT is implemented because it matches the document-upload workflow in the Topic 2 architecture. Tabular, image, JSON/API, audio and time-series pathways are outside the current project scope.
+Only PDF/TXT ingestion is selected because it aligns with the document-upload workflow in the Topic 2 architecture. Tabular, image, JSON/API, audio and time-series pathways are outside this project's current scope.
 
-## Checkpoint A
-The requirement that needs this data is **FR-03 / FR-05**, with **NFR-06 / RAI-01** for licence and provenance. The loaded sample is shown in notebook cell A3 (extracted text, character counts and SHA-256 for both files), not just a "file loaded" message.
+**Current evidence status:** Dataset selected and notebook prepared. Actual file inspection, preparation results, output validation, and repeatability evidence are not yet recorded in this repository.
