@@ -168,3 +168,19 @@ The initial supported document format and clause categories will be defined acco
 **Current Phase:** Project Planning and Requirements Definition
 
 The current focus is on defining the problem, establishing project objectives and scope, identifying suitable data sources, reviewing relevant approaches, and designing the proposed system architecture.
+
+
+## 13. Topic 3 – Data Pipeline
+
+The Topic 3 lab implements the PDF/TXT document-ingestion pathway using the lecturer-provided synthetic teaching examples. The pipeline demonstrates source inspection, text extraction, cleaning, structure-aware chunking, validation, saved outputs, source hashes and repeatability checks. The sample handbook and FAQ are not real contracts and do not establish contract-clause detection or legal-risk accuracy. A suitable project-domain contract dataset will be selected separately for later model development and evaluation.
+
+### Topic 3 files
+
+- [Data inventory](docs/week3_data_inventory.md)
+- [Executable PDF/TXT pipeline notebook](notebooks/week3_pipeline.ipynb)
+- [Pipeline decisions](docs/week3_pipeline_decisions.md)
+- [Common data manifest](data/week3_manifest.json)
+- [PDF/TXT pipeline manifest](data/pipeline_v1/pdf/pipeline_manifest.json)
+- [Prepared outputs](data/processed/)
+
+**Status:** Initial PDF/TXT pipeline implemented and repeatability checked on synthetic examples. OCR and real-contract evaluation remain future work.
