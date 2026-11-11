@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="520" viewBox="0 0 1500 520">
+<rect width="1500" height="520" fill="white"/>
+<text x="750" y="58" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold" fill="#172033">Week 3 V1 Data Pipeline — CUAD PDF/TXT</text>
+<g font-family="Arial" text-anchor="middle" fill="#172033" stroke="#334155" stroke-width="2">
+<rect x="35" y="175" width="205" height="150" rx="18" fill="#eff6ff"/><text x="137" y="225" font-size="21" font-weight="bold" stroke="none">CUAD v1 ZIP</text><text x="137" y="263" font-size="17" stroke="none">510 contracts</text><text x="137" y="291" font-size="17" stroke="none">PDF + TXT</text>
+<rect x="285" y="175" width="205" height="150" rx="18" fill="#f0fdf4"/><text x="387" y="225" font-size="21" font-weight="bold" stroke="none">Select pair</text><text x="387" y="263" font-size="17" stroke="none">One agreement</text><text x="387" y="291" font-size="17" stroke="none">PDF + TXT</text>
+<rect x="535" y="175" width="205" height="150" rx="18" fill="#fff7ed"/><text x="637" y="225" font-size="21" font-weight="bold" stroke="none">Inspect</text><text x="637" y="263" font-size="17" stroke="none">9-page PDF</text><text x="637" y="291" font-size="17" stroke="none">UTF-8 TXT</text>
+<rect x="785" y="175" width="205" height="150" rx="18" fill="#f5f3ff"/><text x="887" y="225" font-size="21" font-weight="bold" stroke="none">Clean &amp; chunk</text><text x="887" y="263" font-size="17" stroke="none">Text normalisation</text><text x="887" y="291" font-size="17" stroke="none">Structure-aware</text>
+<rect x="1035" y="175" width="205" height="150" rx="18" fill="#fdf2f8"/><text x="1137" y="225" font-size="21" font-weight="bold" stroke="none">Validate &amp; export</text><text x="1137" y="263" font-size="17" stroke="none">33 JSONL chunks</text><text x="1137" y="291" font-size="17" stroke="none">Reload checks</text>
+<rect x="1285" y="175" width="180" height="150" rx="18" fill="#f1f5f9"/><text x="1375" y="225" font-size="21" font-weight="bold" stroke="none">Lineage</text><text x="1375" y="263" font-size="17" stroke="none">SHA-256</text><text x="1375" y="291" font-size="17" stroke="none">Repeatability</text>
+</g>
+<g stroke="#334155" stroke-width="3" fill="none"><path d="M245 250 H275 M495 250 H525 M745 250 H775 M995 250 H1025 M1245 250 H1275"/></g>
+<g fill="#334155"><path d="M275 242 L285 250 L275 258 Z"/><path d="M525 242 L535 250 L525 258 Z"/><path d="M775 242 L785 250 L775 258 Z"/><path d="M1025 242 L1035 250 L1025 258 Z"/><path d="M1275 242 L1285 250 L1275 258 Z"/></g>
+<text x="750" y="410" text-anchor="middle" font-family="Arial" font-size="18" fill="#475569">Prepared contract text is stored locally; public GitHub contains metadata and provenance only.</text>
+</svg>

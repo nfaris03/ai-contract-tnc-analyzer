@@ -1,0 +1,83 @@
+{
+  "project": "AI-Powered Contract and Terms & Conditions Analyzer",
+  "topic": "Topic 3 data ingestion and preparation",
+  "dataset": "CUAD v1",
+  "selected_pathway": "PDF/TXT documents",
+  "generated_at_utc": "2026-11-11T16:07:23.475380+00:00",
+  "archive_filename": "CUAD_v1 (1).zip",
+  "archive_size_bytes": 105883672,
+  "archive_sha256": "88b694d99007d39777fa44cd72daf8297773d285dc3eab0091ba32078888d18e",
+  "execution_status": "pipeline_logic_executed_locally",
+  "execution_environment": "Local Python/Jupyter kernel using the supplied archive. The updated notebook also provides a Colab ZIP upload workflow; the student's own Colab runtime has not been tested.",
+  "source_contract_pair": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement",
+  "source_contract_pair_note": "The selected PDF and TXT are two formats of the same agreement, not two independent contracts.",
+  "sources": [
+    {
+      "source_id": "S01",
+      "source_filename": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.pdf",
+      "format": "PDF",
+      "size_bytes": 109658,
+      "pages": 9,
+      "extracted_characters": 29376,
+      "cleaned_characters": 28782,
+      "sha256": "db445255a65067160b9e9a7cf23afbd3379a715d000b0576fa8e7f64982e523c"
+    },
+    {
+      "source_id": "S02",
+      "source_filename": "2ThemartComInc_19990826_10-12G_EX-10.10_6700288_EX-10.10_Co-Branding Agreement_ Agency Agreement.txt",
+      "format": "TXT",
+      "size_bytes": 29454,
+      "segments": 1,
+      "extracted_characters": 29454,
+      "cleaned_characters": 28862,
+      "sha256": "6cdfab95eb5b30c0d2d4860c8204b96b36a54cb9e2025c5ceb1457d223afac41"
+    }
+  ],
+  "preparation": {
+    "method": "Structure-aware chunking with fixed-size 1000-character baseline; merge fragments shorter than 80 characters; maximum chunk length 3000 characters; long paragraphs fall back to fixed cuts.",
+    "chunk_comparison": [
+      {
+        "source": "PDF",
+        "fixed_chunks": 29,
+        "structure_aware_chunks": 18,
+        "fixed_lowercase_start_proxy": 22,
+        "structure_heading_starts": 12,
+        "min_chunk_chars": 113,
+        "median_chunk_chars": 1343,
+        "max_chunk_chars": 3000
+      },
+      {
+        "source": "TXT",
+        "fixed_chunks": 29,
+        "structure_aware_chunks": 15,
+        "fixed_lowercase_start_proxy": 22,
+        "structure_heading_starts": 7,
+        "min_chunk_chars": 438,
+        "median_chunk_chars": 2159,
+        "max_chunk_chars": 2994
+      }
+    ],
+    "prepared_output": "data/processed/prepared_text.jsonl",
+    "record_count": 33,
+    "size_bytes": 69860,
+    "sha256": "628db70cdb428d6e3ca3d1858999c818e812a84cca0bbe8628e880408146aca0",
+    "content_note": "Contains extracted contract text; not committed to public GitHub pending document-level redistribution review."
+  },
+  "validation": {
+    "input_verification": "PASS",
+    "pdf_text_extraction": "PASS",
+    "txt_utf8_decoding": "PASS",
+    "jsonl_reload_matches_in_memory": "PASS",
+    "non_empty_chunks": "PASS",
+    "repeatability": "PASS",
+    "source_output_checksum_lineage": "PASS"
+  },
+  "limitations": [
+    "PDF and TXT are two formats of one agreement, not two independent contracts.",
+    "Only one agreement pair was processed; this demonstrates ingestion, not representative dataset evaluation.",
+    "CUAD contains commercial contracts and may not represent consumer website Terms & Conditions.",
+    "Rule-based heading detection may miss unusual clause formats.",
+    "OCR, multilingual processing, model training and clause-detection accuracy evaluation were not performed.",
+    "Check dataset release terms and individual underlying contract rights before redistribution."
+  ]
+}

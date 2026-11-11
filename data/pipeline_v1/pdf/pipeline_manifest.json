@@ -1,0 +1,21 @@
+{
+  "pipeline_version": "week3-v1",
+  "pathway": "PDF and TXT document ingestion",
+  "dataset": "CUAD v1",
+  "execution_status": "pipeline_logic_executed_locally",
+  "notebook": "notebooks/week3_pipeline.ipynb",
+  "source_count": 2,
+  "source_relationship": "PDF and TXT are two formats of one agreement.",
+  "prepared_output": "data/processed/prepared_text.jsonl (local only; excluded from public GitHub)",
+  "prepared_output_records": 33,
+  "prepared_output_size_bytes": 69860,
+  "prepared_output_sha256": "628db70cdb428d6e3ca3d1858999c818e812a84cca0bbe8628e880408146aca0",
+  "repeatability": "PASS",
+  "validation": "PASS",
+  "limitations": [
+    "Commercial contracts may not represent consumer website T&Cs.",
+    "One agreement pair is a pipeline demonstration only.",
+    "Source and extracted text are not committed pending rights review.",
+    "No model training or clause-detection evaluation was performed."
+  ]
+}
