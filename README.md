@@ -52,3 +52,21 @@ Python, Streamlit, PDF extraction libraries, NLP/ML methods, Pandas, NumPy, and 
 **Data handling:** raw contract files and prepared_text.jsonl are excluded from this public repository because redistribution rights for individual underlying contracts and extracted text must be checked. The manifest records filenames, checksums and processing evidence without publishing contract text. The notebook includes a Colab upload workflow; the successful execution recorded in the manifest was performed in a local Python/Jupyter kernel, not in the student's Colab account.
 
 CUAD focuses on commercial contracts, not consumer-style website T&C documents. Consumer T&C coverage, OCR, multilingual processing, model training and clause-detection evaluation remain future work.
+
+
+---
+
+## UNCOVER AI — Additive Project Extension (Planned)
+
+**Updated proposed title:** UNCOVER AI: An AI-Powered Contract Analysis and Document Review Management System.
+
+The existing AI contract/T&C analyzer remains the **core FYP component**: upload text-based PDFs, extract and prepare text, identify and categorize clauses, provide plain-language explanations, and show the supporting original excerpts. The application is now intended for **both individuals and organizational users**.
+
+**Additional planned supporting features:**
+- **Dashboard:** counts of total documents, pending review, reviewed, user-approved, and needs-attention documents; recent uploads; and a chart of detected clause categories.
+- **My Documents:** saved document and analysis history, search/filter, reopen, and deletion.
+- **Review Management:** user-controlled review statuses and notes, tracked separately from AI findings or processing status.
+- **PDF Reports:** export identified clauses, supporting source excerpts, explanations, and limitations.
+- **Basic accounts and storage:** user-specific access and document metadata/analysis persistence (SQLite proposed for the prototype).
+
+**Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) for details.
