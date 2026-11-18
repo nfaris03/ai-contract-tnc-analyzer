@@ -62,3 +62,23 @@ A matched PDF/TXT pair for the same Co-Branding and Advertising Agreement was ex
 - Heading detection is rule-based and may split unusual formats imperfectly.
 - OCR, password-protected PDFs, complex layouts, multilingual extraction, model training and clause-detection accuracy evaluation are outside this pipeline version.
 - The notebook was executed locally; the included Colab upload workflow has not been tested in the student's own Colab account.
+
+
+---
+
+## UNCOVER AI — Additive Project Extension (Planned)
+
+**Updated proposed title:** UNCOVER AI: An AI-Powered Contract Analysis and Document Review Management System.
+
+The existing AI contract/T&C analyzer remains the **core FYP component**: upload text-based PDFs, extract and prepare text, identify and categorize clauses, provide plain-language explanations, and show the supporting original excerpts. The application is now intended for **both individuals and organizational users**.
+
+**Additional planned supporting features:**
+- **Dashboard:** counts of total documents, pending review, reviewed, user-approved, and needs-attention documents; recent uploads; and a chart of detected clause categories.
+- **My Documents:** saved document and analysis history, search/filter, reopen, and deletion.
+- **Review Management:** user-controlled review statuses and notes, tracked separately from AI findings or processing status.
+- **PDF Reports:** export identified clauses, supporting source excerpts, explanations, and limitations.
+- **Basic accounts and storage:** user-specific access and document metadata/analysis persistence (SQLite proposed for the prototype).
+
+**Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
+
+**Pipeline integration extension:** Preserve the existing PDF/TXT extraction, cleaning, chunking, JSONL lineage, and repeatability tests. Once clause analysis is implemented, persist results with source references; dashboard and review features consume these results. The current one-agreement pipeline demonstration does not establish model accuracy or dashboard functionality.
