@@ -124,3 +124,23 @@ Numerical performance targets will be set in the Week 2 evaluation plan after th
 ## 15. Current Status
 
 Week 1 establishes the problem, target users, objectives, scope, candidate clause categories, data-source plan, and Responsible AI considerations. Existing-solution research and data-source selection must be supported by checked sources before final submission.
+
+
+---
+
+## UNCOVER AI — Additive Project Extension (Planned)
+
+**Updated proposed title:** UNCOVER AI: An AI-Powered Contract Analysis and Document Review Management System.
+
+The existing AI contract/T&C analyzer remains the **core FYP component**: upload text-based PDFs, extract and prepare text, identify and categorize clauses, provide plain-language explanations, and show the supporting original excerpts. The application is now intended for **both individuals and organizational users**.
+
+**Additional planned supporting features:**
+- **Dashboard:** counts of total documents, pending review, reviewed, user-approved, and needs-attention documents; recent uploads; and a chart of detected clause categories.
+- **My Documents:** saved document and analysis history, search/filter, reopen, and deletion.
+- **Review Management:** user-controlled review statuses and notes, tracked separately from AI findings or processing status.
+- **PDF Reports:** export identified clauses, supporting source excerpts, explanations, and limitations.
+- **Basic accounts and storage:** user-specific access and document metadata/analysis persistence (SQLite proposed for the prototype).
+
+**Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
+
+**Scope priority:** AI analysis and evaluation first; document dashboard and review workflow second. Team approvals, chatbot, and contract comparison are outside the initial scope.
