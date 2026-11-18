@@ -1,4 +1,4 @@
-#UNCOVER AI-AI-Powered Contract and Terms & Conditions Analyzer
+#UNCOVER-AI-Powered Contract and Terms & Conditions Analyzer
 
 ## Project overview
 This project proposes an AI-based application that helps users understand contracts and Terms & Conditions documents before accepting or signing them. It aims to extract document text, identify selected clauses that may need attention, and explain those clauses in plain language with the original text as evidence.
