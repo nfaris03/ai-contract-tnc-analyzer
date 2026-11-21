@@ -62,7 +62,7 @@ The [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) describes *
 
 - `docs/`: Week 1–3 written lab deliverables and diagrams
 - `notebooks/`: Lab 3 pipeline notebook
-- `data/`: Lab 3 manifests and explicitly labeled synthetic demonstration data
+- `data/`: Lab 3 manifests and authentic CUAD category metadata and historical pipeline manifests
 - `src/`: reserved for future app code
 - `evaluation/`: reserved for future model evaluation
 - `prompts/`: reserved for future prompts, if used
