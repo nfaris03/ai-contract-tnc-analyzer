@@ -1,82 +1,70 @@
-#UNCOVER-AI-Powered Contract and Terms & Conditions Analyzer
+# UNCOVER AI
+**AI-Powered Contract Analysis and Document Review Management System**  
+*Understand Before You Agree*
 
-## Project overview
-This project proposes an AI-based application that helps users understand contracts and Terms & Conditions documents before accepting or signing them. It aims to extract document text, identify selected clauses that may need attention, and explain those clauses in plain language with the original text as evidence.
+> **New here? Read [LAB_GUIDE.md](LAB_GUIDE.md) first.** It explains the folder structure, the purpose of each file and what is still incomplete.
 
-The system supports document understanding only. It does not determine legal validity, fairness, or enforceability and does not replace professional legal advice.
+## Project in simple English
 
-## Problem and proposed solution
-Contracts and T&C documents can be lengthy and contain complex wording. Users may overlook important conditions such as fees, automatic renewal, cancellation restrictions, penalties, liability limitations, and personal-data use.
+UNCOVER AI is a proposed AI-assisted tool that helps people understand contracts and Terms & Conditions. A user uploads a supported text-based PDF; the intended system extracts text, identifies selected clause types, and presents plain-language explanations alongside the original wording. It is a decision-support prototype, **not legal advice**.
 
-The proposed web application will accept a supported document, extract and prepare its text, identify clauses matching selected review categories, and display the original clause with a plain-language explanation and preliminary attention label.
+**Problem:** Important contract terms can be lengthy and hard to locate or understand.  
+**Engineering gap:** A small, measurable document-analysis workflow with evidence-linked findings, transparent limitations and human review.  
+**Target users:** Individuals, students, small businesses and other document reviewers.
 
-## Objectives
-1. Develop an AI-powered application for analysing uploaded contracts and T&C documents.
-2. Apply NLP/ML techniques to identify and categorise selected clauses.
-3. Generate plain-language explanations grounded in the source text.
-4. Evaluate clause identification, classification, explanation quality, and processing time.
+**Main objectives:** (1) prepare supported contract text; (2) identify and categorize relevant clauses using evaluated NLP/ML; (3) explain findings with original evidence and evaluate accuracy and usability.
 
-## Proposed technologies
-Python, Streamlit, PDF extraction libraries, NLP/ML methods, Pandas, NumPy, and Scikit-learn. An LLM may be considered for explanations subject to feasibility, privacy, and evaluation.
+**Initial clause categories:** automatic renewal, cancellation/termination, fees, penalties, limitation of liability, and personal-data use.
 
-## Responsible AI and limitations
-- Show the original source excerpt for every finding.
-- Communicate uncertainty and extraction failures.
-- Protect uploaded documents and avoid unnecessary retention.
-- Do not claim legal validity, invalidity, fairness, or enforceability.
-- Encourage human review and qualified legal advice for important matters.
+**Evidence and related work:** [CUAD research](https://arxiv.org/abs/2103.06268), [ToS;DR](https://tosdr.org/en), and a third related-work comparison are discussed in the [Lab 1 project scope](docs/week1_project_scope.md). These references motivate the problem; they are not results from user interviews.
 
-## Topic 3 – Data ingestion and preparation
+**Candidate data:** [CUAD](https://huggingface.co/datasets/theatticusproject/cuad), [Google Terms](https://policies.google.com/terms), and [Google Privacy Policy](https://policies.google.com/privacy). Check usage rights before copying or redistributing content.
 
-**Selected dataset:** CUAD v1 (Contract Understanding Atticus Dataset), a real, expert-annotated collection of commercial contracts. Dataset source: https://huggingface.co/datasets/theatticusproject/cuad. Research citation: Hendrycks et al. (2021), *CUAD: An Expert-Annotated NLP Dataset for Legal Contract Review*, arXiv:2103.06268.
+## Go directly to your lab
 
-**Selected pathway:** PDF/TXT document ingestion. The pipeline inspected a matched PDF/TXT pair for one CUAD agreement, extracted text, compared fixed-size and structure-aware chunking, exported prepared JSONL locally, and generated source/output lineage metadata.
-
-### Topic 3 files
-- Data inventory: docs/week3_data_inventory.md
-- Pipeline notebook: notebooks/week3_pipeline.ipynb
-- Pipeline decisions: docs/week3_pipeline_decisions.md
-- Pipeline diagram (SVG): docs/week3_pipeline_diagram.svg
-- Common data manifest: data/week3_manifest.json
-- Pipeline run manifest: data/pipeline_v1/pdf/pipeline_manifest.json
-
-### Execution evidence
-- Source PDF: 9 pages; 29,376 extracted characters.
-- Matched TXT: 29,454 characters; strict UTF-8 read succeeded.
-- Structure-aware chunks: 18 from PDF and 15 from TXT (33 total).
-- Prepared JSONL: 69,860 bytes; reload validation passed.
-- Repeatability and SHA-256 lineage checks passed.
-
-**Important sample limitation:** the PDF and TXT are two formats of the same agreement, not two independent contracts. This is a pipeline demonstration, not representative dataset evaluation or clause-detection accuracy testing.
-
-**Data handling:** raw contract files and prepared_text.jsonl are excluded from this public repository because redistribution rights for individual underlying contracts and extracted text must be checked. The manifest records filenames, checksums and processing evidence without publishing contract text. The notebook includes a Colab upload workflow; the successful execution recorded in the manifest was performed in a local Python/Jupyter kernel, not in the student's Colab account.
-
-CUAD focuses on commercial contracts, not consumer-style website T&C documents. Consumer T&C coverage, OCR, multilingual processing, model training and clause-detection evaluation remain future work.
-
-
----
-
-## UNCOVER AI — Additive Project Extension (Planned)
-
-**Updated proposed title:** UNCOVER AI: An AI-Powered Contract Analysis and Document Review Management System.
-
-The existing AI contract/T&C analyzer remains the **core FYP component**: upload text-based PDFs, extract and prepare text, identify and categorize clauses, provide plain-language explanations, and show the supporting original excerpts. The application is now intended for **both individuals and organizational users**.
-
-**Additional planned supporting features:**
-- **Dashboard:** counts of total documents, pending review, reviewed, user-approved, and needs-attention documents; recent uploads; and a chart of detected clause categories.
-- **My Documents:** saved document and analysis history, search/filter, reopen, and deletion.
-- **Review Management:** user-controlled review statuses and notes, tracked separately from AI findings or processing status.
-- **PDF Reports:** export identified clauses, supporting source excerpts, explanations, and limitations.
-- **Basic accounts and storage:** user-specific access and document metadata/analysis persistence (SQLite proposed for the prototype).
-
-**Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) for details.
-
-
-## Lab submission checklist and navigation (22 Nov 2026)
-| Lab | Primary artifacts | Remaining verification |
+| Topic | What it is about | Open this first |
 |---|---|---|
-| Topic 1 | [Project scope](docs/week1_project_scope.md), [observation](docs/week1_observation_sheet.md), [system map source](docs/week1_system_map.md) | Check PNG map, own reflection, Moodle URL |
-| Topic 2 | [Requirements](docs/week2_requirements.md), [evaluation](docs/week2_evaluation_criteria.md), [architecture](docs/week2_architecture_v1.md), [decisions](docs/week2_architecture_decisions.md) | Check architecture PNG, own reflection, Moodle URL |
-| Topic 3 | [Data inventory](docs/week3_data_inventory.md), [pipeline notebook](notebooks/week3_pipeline.ipynb), [decisions](docs/week3_pipeline_decisions.md), [manifest](data/week3_manifest.json), [pipeline run manifest](data/pipeline_v1/pdf/pipeline_manifest.json) | Re-run notebook/Cell 9, authorized prepared outputs, PNG diagram, Moodle URL |
+| **Lab 1 — Project scope** | Why this project, who needs it and what is in scope | [Week 1 project scope](docs/week1_project_scope.md) |
+| **Lab 2 — Requirements and design** | Features, quality requirements, architecture and proposed metrics | [Week 2 requirements](docs/week2_requirements.md) |
+| **Lab 3 — Data engineering** | CUAD PDF/TXT preparation, checks and lineage | [Week 3 data inventory](docs/week3_data_inventory.md) |
+| **Lab 4 — Upcoming** | Not yet documented | Wait for lecturer instructions |
 
-**Evidence note:** Published manifests describe a previous local run. Do not treat unexecuted notebook cells as proof of a new run. Proposed dashboard and AI model functionality are not yet implemented.
+**Every file explained:** [LAB_GUIDE.md](LAB_GUIDE.md).
+
+## Weekly progress — documented versus verified
+
+| Week | Documented work | Important outstanding items |
+|---|---|---|
+| **1** | Problem, users, scope, risk, research/source supplement | PNG system map, personal reflection, Moodle check |
+| **2** | FR/NFR/RAI, evaluation plan, architecture decisions and traceability | PNG architecture, personal reflection |
+| **3** | CUAD inventory, pipeline notebook, chunking comparison, historical local-run manifests | PNG pipeline, independently rerun Cell 9, authorized executed outputs |
+| **4** | Not started | Await lab instructions |
+
+## How the planned system works
+
+`Upload PDF -> validate -> extract text -> clean and segment -> detect/classify clauses -> generate grounded explanations -> show results`
+
+**Current evidence:** Lab 3 documentation reports one matched PDF/TXT agreement, 9 PDF pages, 33 prepared chunks and a successful *historical local* validation/repeatability run. These are not model-accuracy results, and the GitHub notebook has no saved execution outputs.
+
+**Proposed technologies:** Python, Streamlit, pypdf, scikit-learn, optional evaluated LLM for explanations. Model selection and performance remain to be established.
+
+**Proposed evaluation targets (not achieved):** clause identification F1 ≥ 0.75, category macro-F1 ≥ 0.70, human explanation rating ≥ 4/5, valid-document processing ≥ 90%, and typical processing time ≤ 30 seconds.
+
+## Responsible AI
+
+Display original evidence, acknowledge missed clauses and uncertainty, protect uploaded documents, and avoid making legal judgments. Consumer T&C coverage is not established by CUAD commercial-contract data. OCR and multilingual support are outside the first version.
+
+## FYP / future additions
+
+The [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) describes **planned** dashboard, document library, user review statuses, PDF reports and accounts/storage. These features are separate from evidence of what Labs 1–3 completed.
+
+## Repository layout
+
+- `docs/`: Week 1–3 written lab deliverables and diagrams
+- `notebooks/`: Lab 3 pipeline notebook
+- `data/`: Lab 3 manifests and explicitly labeled synthetic demonstration data
+- `src/`: reserved for future app code
+- `evaluation/`: reserved for future model evaluation
+- `prompts/`: reserved for future prompts, if used
+
+**Submission note:** The original lecturer-required filenames remain unchanged. Check [the remaining-work checklist](LAB_GUIDE.md#remaining-submission-checklist) before claiming all labs complete.
