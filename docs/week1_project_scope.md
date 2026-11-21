@@ -144,3 +144,35 @@ The existing AI contract/T&C analyzer remains the **core FYP component**: upload
 **Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
 
 **Scope priority:** AI analysis and evaluation first; document dashboard and review workflow second. Team approvals, chatbot, and contract comparison are outside the initial scope.
+
+
+## Week 1 completion supplement — evidence, related work and public examples (22 Nov 2026)
+
+### Evidence of the problem (secondary evidence, not a user survey)
+- The Atticus Project's CUAD research frames contract review as locating important provisions in long agreements. Its 510 commercial contracts and 13,000+ expert annotations across 41 clause types demonstrate the breadth of the identification task: https://www.atticusprojectai.org/cuad/ ; Hendrycks et al. (2021), https://arxiv.org/abs/2103.06268 . This is evidence that automated clause identification is an active research problem, **not** evidence of a measured problem among UNCOVER AI's intended consumers.
+- Terms of Service; Didn't Read (ToS;DR) exists to make online terms easier to understand through community-reviewed points and ratings: https://tosdr.org/en . Its existence motivates the use case but does not independently quantify how many people misunderstand terms.
+
+### Three existing approaches and limitations
+| Existing work | What it does | Limitation relevant to UNCOVER AI |
+|---|---|---|
+| CUAD / Hendrycks et al. (2021), https://arxiv.org/abs/2103.06268 | Expert-annotated benchmark for locating important clauses in commercial agreements | Dataset and benchmark, not a ready-to-use consumer document review application; commercial-contract coverage may not transfer to consumer T&C. |
+| ToS;DR, https://tosdr.org/en | Volunteer-reviewed summaries and ratings of service terms and privacy policies | Depends on community-reviewed service coverage; not the same as analyzing each arbitrary PDF uploaded by a user. |
+| Fouché (2024), study of Lawgeex contract review in practice, https://hdl.handle.net/10539/45135 | Empirical study comparing an automated contract-review platform with human reviewers | Focuses on a specific organizational contract-review setting, not validation of consumer T&C explanations or UNCOVER AI's six categories. |
+
+### Engineering gap
+A small, evaluable prototype is needed that accepts a user-provided text PDF, identifies a limited set of important clauses, displays original evidence with plain-English explanations, and supports human-controlled review history. This is a **proposed project gap**, not a claim that no commercial system provides such features.
+
+### Two specific publicly accessible example documents
+1. Google Terms of Service — Google, https://policies.google.com/terms (public HTML, PDF download offered; use as a candidate for authorized inspection, not automatically as redistributable training data).
+2. Google Privacy Policy — Google, https://policies.google.com/privacy (public HTML; candidate for inspection of data-use wording; check reuse restrictions and format before processing).
+
+CUAD v1 is a separate research dataset source: https://www.atticusprojectai.org/cuad/ . Public visibility does not grant unrestricted rights to redistribute document text.
+
+### Comparison with lecturer's EduAdvisor example
+**Similarity:** Both are user-facing AI decision-support concepts that collect input, process it, present an understandable result and must communicate uncertainty. **Difference:** EduAdvisor concerns educational guidance and recommendations, while UNCOVER AI processes unstructured contractual PDF text, locates source clauses, and presents evidence-linked explanations. The exact EduAdvisor architecture/feature list must be checked against the Topic 1 manual; this comparison is conceptual only.
+
+### Scope clarification
+Initial AI Engineering objectives are (1) prepare and validate supported contract text, (2) detect/classify selected clauses, and (3) provide evidence-grounded explanations and evaluate the prototype. Dashboard and review management are supporting planned functions, not completed AI features.
+
+### Reflection prompt for the student
+Before submission, write 2–3 sentences in your own words: which example contract you inspected, what surprised you, and why you selected this scope. Do not present invented interviews or observations as personal work.
