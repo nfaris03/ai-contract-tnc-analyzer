@@ -47,7 +47,7 @@ This guide explains **where everything is**, **what each lab does**, and **what 
 | `docs/week3_pipeline_diagram.png` | **Required PNG not yet verified in repository** |
 | [data/week3_manifest.json](data/week3_manifest.json) | **Part B:** historical local-run source/output metadata and hashes |
 | [data/pipeline_v1/pdf/pipeline_manifest.json](data/pipeline_v1/pdf/pipeline_manifest.json) | **Part C:** historical local-run execution summary |
-| [data/processed/synthetic_demo.jsonl](data/processed/synthetic_demo.jsonl) | Clearly **synthetic illustration**, **not** the output of the CUAD pipeline |
+| [data/raw/cuad_category_descriptions.csv](data/raw/cuad_category_descriptions.csv) | **Authentic CUAD v1 category metadata** copied from the official dataset; not contract text or processed pipeline output |
 
 **To verify:** run the notebook with the authorized CUAD source, save Cell 9 repeatability evidence, create the required executed outputs and PNG; confirm the lecturer's preferred secure submission method for contract-derived text. The two source files inspected are PDF/TXT formats of **one** agreement.
 
@@ -63,7 +63,7 @@ docs/                          <- Written lab reports + diagrams
   uncover_ai_scope_extension.md<- Planned FYP/extra product features
 data/                          <- Source metadata and prepared outputs
   week3_manifest.json          <- Lab 3 common lineage
-  processed/                   <- Lab 3 prepared data; synthetic demo only in public repo
+  processed/                   <- Lab 3 prepared data; authentic CUAD category metadata in raw/; processed output remains local
   pipeline_v1/pdf/             <- Lab 3 pipeline manifest
 notebooks/                     <- Lab 3 executable Python notebook
 src/                           <- Reserved for future application code
