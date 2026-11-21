@@ -70,3 +70,13 @@ The existing AI contract/T&C analyzer remains the **core FYP component**: upload
 - **Basic accounts and storage:** user-specific access and document metadata/analysis persistence (SQLite proposed for the prototype).
 
 **Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) for details.
+
+
+## Lab submission checklist and navigation (22 Nov 2026)
+| Lab | Primary artifacts | Remaining verification |
+|---|---|---|
+| Topic 1 | [Project scope](docs/week1_project_scope.md), [observation](docs/week1_observation_sheet.md), [system map source](docs/week1_system_map.md) | Check PNG map, own reflection, Moodle URL |
+| Topic 2 | [Requirements](docs/week2_requirements.md), [evaluation](docs/week2_evaluation_criteria.md), [architecture](docs/week2_architecture_v1.md), [decisions](docs/week2_architecture_decisions.md) | Check architecture PNG, own reflection, Moodle URL |
+| Topic 3 | [Data inventory](docs/week3_data_inventory.md), [pipeline notebook](notebooks/week3_pipeline.ipynb), [decisions](docs/week3_pipeline_decisions.md), [manifest](data/week3_manifest.json), [pipeline run manifest](data/pipeline_v1/pdf/pipeline_manifest.json) | Re-run notebook/Cell 9, authorized prepared outputs, PNG diagram, Moodle URL |
+
+**Evidence note:** Published manifests describe a previous local run. Do not treat unexecuted notebook cells as proof of a new run. Proposed dashboard and AI model functionality are not yet implemented.
