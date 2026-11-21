@@ -82,3 +82,13 @@ The existing AI contract/T&C analyzer remains the **core FYP component**: upload
 **Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
 
 **Pipeline integration extension:** Preserve the existing PDF/TXT extraction, cleaning, chunking, JSONL lineage, and repeatability tests. Once clause analysis is implemented, persist results with source references; dashboard and review features consume these results. The current one-agreement pipeline demonstration does not establish model accuracy or dashboard functionality.
+
+
+## Week 3 submission gap and reproducibility notes
+- The submitted notebook currently contains code but no saved execution outputs. The manifest documents a prior local execution; a fresh run by the student, including Cell 9, is still needed for directly inspectable execution evidence.
+- `data/processed/prepared_text.jsonl` is intentionally not public because it contains extracted contract text. To meet the output-deliverable requirement without sharing unreviewed material, produce an explicitly **synthetic** small JSONL demonstration or obtain lecturer approval for a private/authorized output submission. Do not label synthetic examples as CUAD-derived.
+- The V1 run manifest is under `data/pipeline_v1/pdf/`; executed content output is not currently in the public repository. Preserve the original local-run hashes as historical evidence; new runs should create new manifests rather than overwrite them with invented success values.
+- The diagram source is `docs/week3_pipeline_diagram.svg`; the requested `.png` should be exported and committed.
+
+### Reflection to complete personally
+Record where you executed the notebook, what actually failed on the first attempt, how you fixed it, and the actual Cell 9 output. These details cannot be inferred from documentation alone.
