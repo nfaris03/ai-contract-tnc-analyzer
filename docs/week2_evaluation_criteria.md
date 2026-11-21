@@ -122,3 +122,16 @@ The existing AI contract/T&C analyzer remains the **core FYP component**: upload
 **Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
 
 **Additional evaluation (planned):** Test dashboard count correctness, saved-result retrieval, review status changes, notes, filtering, deletion, PDF exports, and account isolation if implemented. Keep existing clause precision/recall/F1 and explanation evaluation unchanged; dashboard tests are not substitutes for AI accuracy evaluation.
+
+
+## Week 2 completion supplement — compact criteria table
+| Criterion | Measurement method | Metric | Proposed threshold | Expected outcome |
+|---|---|---|---|---|
+| Clause identification | Compare predicted spans/segments with held-out annotated documents | Precision, recall, F1 | F1 ≥ 0.75 | Relevant clauses are found with a measurable error rate |
+| Clause classification | Evaluate six categories on held-out documents | Per-class F1, macro-F1 | Macro-F1 ≥ 0.70 | Categories remain useful across classes |
+| Explanation faithfulness/clarity | Human reviewers use a 1–5 rubric and check source evidence | Mean rating and unsupported-claim count | Mean ≥ 4/5 | Understandable, source-grounded explanations |
+| Extraction reliability | Test valid text PDFs and record failures | Successful processing proportion | ≥ 90% | Most supported files are processed correctly |
+| Processing time | Measure upload-to-result on defined hardware | Seconds per document | Aim ≤ 30 s | Practical prototype turnaround |
+| Review workflow (if built) | Test stored status, search, notes, PDF export | Passed/total test cases | Define before implementation | Review features behave as specified |
+
+**Important:** These are planning thresholds, not measured model results. Specify document counts, annotation protocol, hardware and error cases before claiming success.
