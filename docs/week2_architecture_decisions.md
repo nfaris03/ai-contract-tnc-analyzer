@@ -129,3 +129,19 @@ The existing AI contract/T&C analyzer remains the **core FYP component**: upload
 **Important:** These are proposed additions, **not implemented or evaluated features**. An 'approved' status is a user's workflow decision, not an AI legal-safety judgment. AI-generated attention indicators must not be presented as legal conclusions. Existing lecturer lab activities and reported results remain unchanged. See [UNCOVER AI scope extension](uncover_ai_scope_extension.md) for details.
 
 **Architecture extension:** Add a persistence layer after results assembly and separate document processing state from user review status. Dashboard summaries should be calculated from stored records, without replacing or bypassing the AI pipeline.
+
+
+## Week 2 completion supplement — requirement-to-component traceability
+| Requirement | Proposed component | Evaluation evidence to collect |
+|---|---|---|
+| FR-01, FR-02, NFR-07 | Streamlit upload + file validator | Supported/unsupported-file tests |
+| FR-03, FR-04, NFR-03 | PDF text extractor | Extraction success and failure tests |
+| FR-05 | Cleaning and segmentation | Inspect prepared chunks and boundaries |
+| FR-06, FR-07, NFR-04 | Clause detector and classifier | Precision, recall, F1, macro-F1 |
+| FR-08, NFR-10 | Preliminary attention-label component | Rule audit and user-interpretation checks |
+| FR-09, FR-10, NFR-05 | Evidence-linked explanation | Human faithfulness and clarity rubric |
+| FR-11–FR-14 | Results interface and user controls | Workflow tests and limitations notice |
+| NFR-02 | End-to-end pipeline | Processing-time measurement |
+| NFR-06, RAI privacy | Storage and data-handling boundary | Data retention/access review |
+
+**Architecture image:** The editable Mermaid source is in `docs/week2_architecture_v1.md`. A separate PNG is required by the lecturer and must be generated/committed. **Student reflection:** Explain in your own words why Streamlit and a simple baseline were chosen and what would make you reconsider them.
