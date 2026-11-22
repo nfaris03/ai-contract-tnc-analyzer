@@ -27,7 +27,7 @@ UNCOVER AI is a proposed AI-assisted tool that helps people understand contracts
 | **Lab 1 — Project scope** | Why this project, who needs it and what is in scope | [Week 1 project scope](docs/week1_project_scope.md) |
 | **Lab 2 — Requirements and design** | Features, quality requirements, architecture and proposed metrics | [Week 2 requirements](docs/week2_requirements.md) |
 | **Lab 3 — Data engineering** | CUAD PDF/TXT preparation, checks and lineage | [Week 3 data inventory](docs/week3_data_inventory.md) |
-| **Lab 4 — Upcoming** | Not yet documented | Wait for lecturer instructions |
+| **Lab 4 — Data quality audit** | Inspect CUAD prepared data, validate quality and assess bias/rights | [Week 4 quality report](docs/week4_data_quality_report.md) |
 
 **Every file explained:** [LAB_GUIDE.md](LAB_GUIDE.md).
 
@@ -38,7 +38,7 @@ UNCOVER AI is a proposed AI-assisted tool that helps people understand contracts
 | **1** | Problem, users, scope, risk, research/source supplement | PNG system map, personal reflection, Moodle check |
 | **2** | FR/NFR/RAI, evaluation plan, architecture decisions and traceability | PNG architecture, personal reflection |
 | **3** | CUAD inventory, pipeline notebook, chunking comparison, historical local-run manifests | PNG pipeline, independently rerun Cell 9, authorized executed outputs |
-| **4** | Not started | Await lab instructions |
+| **4** | [Data Quality & Bias Report](docs/week4_data_quality_report.md): 33-record structural audit and 15-item purposive sample; **GO WITH CONDITIONS** for limited local pipeline work | Fix duplicate chunk IDs (15 collisions), reconcile current output manifest, verify rights and broader clause coverage |
 
 ## How the planned system works
 
@@ -68,3 +68,7 @@ The [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) describes *
 - `prompts/`: reserved for future prompts, if used
 
 **Submission note:** The original lecturer-required filenames remain unchanged. Check [the remaining-work checklist](LAB_GUIDE.md#remaining-submission-checklist) before claiming all labs complete.
+
+## Week 4 quality gate
+
+**GO WITH CONDITIONS (limited local development only).** The [Week 4 Data Quality & Bias Report](docs/week4_data_quality_report.md) found 33/33 structurally valid records but 15 duplicate `chunk_id` occurrences across the PDF/TXT formats. **Outstanding:** regenerate globally unique IDs and matching current manifest, verify chunk boundaries and redistribution rights, and expand coverage beyond one agreement before retrieval/model evaluation. The prepared contract text remains private.
