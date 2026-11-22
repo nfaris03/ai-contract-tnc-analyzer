@@ -38,7 +38,7 @@ UNCOVER AI is a proposed AI-assisted tool that helps people understand contracts
 | **1** | Problem, users, scope, risk, research/source supplement | PNG system map, personal reflection, Moodle check |
 | **2** | FR/NFR/RAI, evaluation plan, architecture decisions and traceability | PNG architecture, personal reflection |
 | **3** | CUAD inventory, pipeline notebook, chunking comparison, historical local-run manifests | PNG pipeline, independently rerun Cell 9, authorized executed outputs |
-| **4** | [Data Quality & Bias Report](docs/week4_data_quality_report.md): 33-record structural audit and 15-item purposive sample; **GO WITH CONDITIONS** for limited local pipeline work | Fix duplicate chunk IDs (15 collisions), reconcile current output manifest, verify rights and broader clause coverage |
+| **4** | [Data Quality & Bias Report](docs/week4_data_quality_report.md): 33-record structural audit and 15-item purposive sample; **GO WITH CONDITIONS** for limited local pipeline work | Fix duplicate chunk IDs (15 collisions), publish current verified manifest, verify rights and broader clause coverage |
 
 ## How the planned system works
 
