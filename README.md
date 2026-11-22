@@ -38,7 +38,7 @@ UNCOVER AI is a proposed AI-assisted tool that helps people understand contracts
 | **1** | Problem, users, scope, risk, research/source supplement | PNG system map, personal reflection, Moodle check |
 | **2** | FR/NFR/RAI, evaluation plan, architecture decisions and traceability | PNG architecture, personal reflection |
 | **3** | CUAD inventory, pipeline notebook, chunking comparison, historical local-run manifests | PNG pipeline, independently rerun Cell 9, authorized executed outputs |
-| **4** | [Data Quality & Bias Report](docs/week4_data_quality_report.md): 33-record structural audit and 15-item purposive sample; **GO WITH CONDITIONS** for limited local pipeline work | Fix duplicate chunk IDs (15 collisions), publish current verified manifest, verify rights and broader clause coverage |
+| **4** | [Data Quality & Bias Report](docs/week4_data_quality_report.md): 33-record structural audit and 15-item purposive sample; **GO WITH CONDITIONS** for limited local pipeline work | Commit corrected Colab notebook to GitHub; inspect source-text boundaries, verify rights and broaden clause coverage |
 
 ## How the planned system works
 
@@ -71,4 +71,4 @@ The [UNCOVER AI scope extension](docs/uncover_ai_scope_extension.md) describes *
 
 ## Week 4 quality gate
 
-**GO WITH CONDITIONS (limited local development only).** The [Week 4 Data Quality & Bias Report](docs/week4_data_quality_report.md) found 33/33 structurally valid records but 15 duplicate `chunk_id` occurrences across the PDF/TXT formats. **Outstanding:** regenerate globally unique IDs and matching current manifest, verify chunk boundaries and redistribution rights, and expand coverage beyond one agreement before retrieval/model evaluation. The prepared contract text remains private.
+**GO WITH CONDITIONS (limited local development only).** The [Week 4 Data Quality & Bias Report](docs/week4_data_quality_report.md) verified 33/33 structurally valid records and 33/33 unique chunk IDs after fixing 15 initial ID collisions. The current manifest's checksum matches the corrected 33-record output. **Outstanding:** commit the corrected notebook, verify chunk boundaries and redistribution rights, and expand coverage beyond one agreement before retrieval/model evaluation. The prepared contract text remains private.
