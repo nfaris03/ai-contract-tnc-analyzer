@@ -12,29 +12,35 @@
 
 ## 1. Functional Requirements
 
-- **FR-01 – Document upload and processing:** Accept, validate and extract readable text from supported text-based PDFs within configured size limits; clean and segment text while retaining context.
-- **FR-02 – Clause identification and classification:** Detect relevant segments and assign one or more supported categories (renewal, fees, cancellation, penalties, liability, personal data).
-- **FR-03 – Attention assessment:** Display preliminary High/Medium/Low labels only where supported by evaluation; not legal conclusions.
-- **FR-04 – Explanation and source display:** Show original excerpts, source-grounded plain-language explanations and a summary of detected clauses and categories.
-- **FR-05 – Dashboard:** Show saved document totals, detected category and attention distributions, and review progress.
-- **FR-06 – Document management:** Save authorised analyses, list names, dates, summaries and detailed findings; filter by document, category and review status; remove or replace uploads, start new analyses and delete saved content and associated counts.
-- **FR-07 – Review status:** Allow user-set Pending, Reviewed and Completed statuses for documents or findings and persist changes.
-- **FR-08 – Error handling:** Clearly report unsupported or oversized files, failed or insufficient extraction and no findings; clarify that no findings does not establish safety.
+| ID | Requirement | Explanation |
+| --- | --- | --- |
+| FR-01 | Document upload and processing | Accept, validate and extract readable text from supported text-based PDFs within configured size limits; clean and segment text while retaining context. |
+| FR-02 | Clause identification and classification | Detect relevant segments and assign one or more supported categories (renewal, fees, cancellation, penalties, liability, personal data). |
+| FR-03 | Attention assessment | Display preliminary High/Medium/Low labels only where supported by evaluation; not legal conclusions. |
+| FR-04 | Explanation and source display | Show original excerpts, source-grounded plain-language explanations and a summary of detected clauses and categories. |
+| FR-05 | Dashboard | Show saved document totals, detected category and attention distributions, and review progress. |
+| FR-06 | Document management | Save authorised analyses, list names, dates, summaries and detailed findings; filter by document, category and review status; remove or replace uploads, start new analyses and delete saved content and associated counts. |
+| FR-07 | Review status | Allow user-set Pending, Reviewed and Completed statuses for documents or findings and persist changes. |
+| FR-08 | Error handling | Clearly report unsupported or oversized files, failed or insufficient extraction and no findings; clarify that no findings does not establish safety. |
 
 ## 2. Non-Functional Requirements
 
-- **NFR-01 – Performance:** Measure end-to-end latency; proposed p90 ≤30 seconds for defined supported test files.
-- **NFR-02 – Accuracy and data quality:** Evaluate detection and classification against held-out labelled data (proposed F1 ≥0.75 and macro-F1 ≥0.70); verify source identifiers, structural validity and exact dashboard totals against stored records.
-- **NFR-03 – Reliability:** Handle ≥95% of predefined error cases and review workflows; preserve saved statuses after restart.
-- **NFR-04 – Usability:** Clear labels, readable text and consistent navigation; proposed mean clarity ≥4/5 and ≥80% dashboard task completion.
-- **NFR-05 – Maintainability and portability:** Separate processing, analysis, explanation and UI modules; document setup and rerun steps.
+| ID | Quality attribute | Requirement | Measurement | Proposed threshold |
+| --- | --- | --- | --- | --- |
+| NFR-01 | Performance | Measure end-to-end latency; proposed p90 ≤30 seconds for defined supported test files. | Time ≥20 supported PDF runs | p90 ≤30 seconds |
+| NFR-02 | Accuracy and data quality | Evaluate detection and classification against held-out labelled data (proposed F1 ≥0.75 and macro-F1 ≥0.70); verify source identifiers, structural validity and exact dashboard totals against stored records. | Compare held-out labels; check records and dashboard fixture | F1 ≥0.75; macro-F1 ≥0.70; 100% structural validity, unique IDs and dashboard counts |
+| NFR-03 | Reliability | Handle ≥95% of predefined error cases and review workflows; preserve saved statuses after restart. | Test errors, workflows and restart | ≥95% pass; all saved statuses persist |
+| NFR-04 | Usability | Clear labels, readable text and consistent navigation; proposed mean clarity ≥4/5 and ≥80% dashboard task completion. | User ratings and dashboard tasks | Mean ≥4/5; ≥80% completion |
+| NFR-05 | Maintainability and portability | Separate processing, analysis, explanation and UI modules; document setup and rerun steps. | Inspect modules and rerun setup | Separated modules; successful setup |
 
 ## 3. Responsible AI Requirements
 
-- **RAI-01 – Transparency and explainability:** Every finding includes its source excerpt; explanations must be grounded (proposed ≥90% faithful); dashboard counts represent detected findings only.
-- **RAI-02 – Privacy and security:** Minimise collection and retention; use authorised documents, restrict access, validate file type and size, avoid exposing content or internal errors, and verify deletion of associated records.
-- **RAI-03 – Human oversight and limitations:** Communicate extraction, classification and explanation uncertainty; label attention levels preliminary; display no-finding caveats and non-legal-advice notice; encourage qualified advice for important or unclear matters.
-- **RAI-04 – Fair and responsible evaluation:** Test varied document structures and wording where suitable data exists; never claim legal validity, fairness or safety solely from automated output.
+| ID | Risk | Requirement | Measurement | Proposed threshold |
+| --- | --- | --- | --- | --- |
+| RAI-01 | Transparency and explainability | Every finding includes its source excerpt; explanations must be grounded (proposed ≥90% faithful); dashboard counts represent detected findings only. | Compare findings with source and verify counts | 100% traceability; ≥90% faithful explanations; exact counts |
+| RAI-02 | Privacy and security | Minimise collection and retention; use authorised documents, restrict access, validate file type and size, avoid exposing content or internal errors, and verify deletion of associated records. | Inspect uploads, access, retention and deletion | 100% applicable checks pass |
+| RAI-03 | Human oversight and limitations | Communicate extraction, classification and explanation uncertainty; label attention levels preliminary; display no-finding caveats and non-legal-advice notice; encourage qualified advice for important or unclear matters. | Review notices and uncertain/no-finding cases | 100% applicable cases correctly labelled |
+| RAI-04 | Fair and responsible evaluation | Test varied document structures and wording where suitable data exists; never claim legal validity, fairness or safety solely from automated output. | Review test coverage and outputs | Varied structures and wording where available; zero unsupported legal conclusions |
 
 ## 4. Proposed System Components
 
